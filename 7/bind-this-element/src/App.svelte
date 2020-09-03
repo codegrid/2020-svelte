@@ -4,7 +4,10 @@ import { onMount } from 'svelte'
 let h1
 
 onMount(() => {
-  h1.textContent = new Date().toLocaleDateString()
+  const now = new Date()
+  const date = now.toLocaleDateString()
+  const time = now.toLocaleTimeString()
+  h1.textContent = `${date} ${time}`
 })
 </script>
 
