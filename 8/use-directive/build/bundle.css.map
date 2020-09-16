@@ -1,0 +1,12 @@
+{
+  "version": 3,
+  "file": "bundle.css",
+  "sources": [
+    "../../App.svelte"
+  ],
+  "sourcesContent": [
+    "<script>\nlet limit = 30\n\nfunction validate (node, max) {\n  function checkCount () {\n    if (node.value.length > max) {\n      node.classList.add('invalid')\n    } else {\n      node.classList.remove('invalid')\n    }\n  }\n\n  node.addEventListener('input', checkCount)\n  checkCount()\n\n  return {\n    update (newLimit) {\n      max = newLimit\n      checkCount()\n    },\n\n    destroy () {\n      node.removeEventListener('input', checkCount)\n    }\n  }\n}\n</script>\n\n制限文字数 <input type=\"number\" bind:value={limit}>\n<hr>\n<textarea use:validate={limit}>あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほ</textarea>\n\n<style>\ntextarea {\n  width: 10em;\n  height: 5em;\n  font-size: 1.5rem;\n}\n\n:global(textarea.invalid) {\n  background-color: lightpink;\n}\n</style>\n"
+  ],
+  "names": [],
+  "mappings": "AAiCA,QAAQ,cAAC,CAAC,AACR,KAAK,CAAE,IAAI,CACX,MAAM,CAAE,GAAG,CACX,SAAS,CAAE,MAAM,AACnB,CAAC,AAEO,gBAAgB,AAAE,CAAC,AACzB,gBAAgB,CAAE,SAAS,AAC7B,CAAC"
+}
